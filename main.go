@@ -2,22 +2,14 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"net/http"
+	"note-echo/src/router"
 )
 
 func main() {
 	// 新建 Echo 实例
 	app := echo.New()
-
-	// Hello World
-	app.GET("/hello/:name", func(c echo.Context) error {
-		name := c.Param("name")
-		return c.JSON(http.StatusOK, echo.Map{
-			"code":    http.StatusOK,
-			"message": "Hello, " + name,
-		})
-	})
-
+	// 注册路由
+	router.RegisterRouter(app)
 	// 启动服务
-	app.Start(":18081")
+	app.Logger.Fatal(app.Start(":18081"))
 }
