@@ -9,6 +9,7 @@
 </a>
 <img src="https://img.shields.io/badge/Go-1.23-darkturquoise">
 <img src="https://img.shields.io/badge/Echo-4.13.3-darkcyan">
+<img src="https://img.shields.io/badge/MongoDB Go Driver-1.17.2-seagreen">
 </p>
 
 ### 📖 Language
@@ -41,6 +42,30 @@ go run main.go
 
 ```
 go build main.go
+```
+
+### 🐳 Docker
+
+#### Compile the Golang code to Linux executable file
+
+```
+set GOOS=linux
+
+set GOARCH=amd64
+
+go build main.go
+```
+
+#### Docker Build
+
+```
+docker build -t note-echo .
+```
+
+#### Docker Run
+
+```
+docker run -d -p 18081:18081 --name note-echo note-echo
 ```
 
 ### 📜 Licence
